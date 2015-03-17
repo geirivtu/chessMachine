@@ -1,0 +1,86 @@
+import copy
+import sys
+#brd = [[0 for x in xrange(8)] for x in xrange(8)]
+
+def showWeight(weight):
+    for y in range(8):
+        for x in range(8):
+            sys.stdout.write(str(weight[y][x]) + "\t")
+        sys.stdout.write("\n")
+
+brd = [[-1, -1, -1, -1, -1, -1, -1, -1],
+       [-1, -1, -1, -1, -1, -1, -1, -1],
+       [0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0],
+       [0, -1, -1, -1, -1, -1, -1, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0],
+       [-1, -1, -1, -1, -1, -1, -1, -1],
+       [-1, -1, -1, -1, -1, -1, -1, -1]]
+
+weight = [[(0,0) for x in xrange(8)] for x in xrange(8)]
+for x in range(8):
+    for y in range(8):
+        weight[x][y] = (brd[x][y], 0)
+
+moves = [[(3, 4), (3, 2)]];
+
+start = moves[0][0]
+end = moves[0][1]
+
+
+
+solution = "false"
+path = []
+steps = []
+nextSteps = []
+steps.append((start[0], start[1], 0))
+weight[7-start[1]][start[0]] = (1,0);
+count = 2;
+max_obstructions = 0;
+while solution == "false":
+    if len(steps) == 0:
+        solution = "no solution"
+        max_obstructions +=1;
+    for step in steps:
+        if step[0] == end[0] and step[1] == end[1]:
+            solution = "true"
+        else:
+            if step[1]<7 and weight[7-step[1]-1][step[0]][0] == 0:
+                nextSteps.append((step[0], step[1]+1, step[2]))
+                weight[7-step[1]-1][step[0]] = (count, step[2])
+            if step[1]>0 and weight[7-step[1]+1][step[0]][0] == 0:
+                nextSteps.append((step[0], step[1]-1, step[2]))
+                weight[7-step[1]+1][step[0]] = (count, step[2])
+            if step[0]<7 and weight[7-step[1]][step[0]+1][0] == 0:
+                nextSteps.append((step[0]+1, step[1], step[2]))
+                weight[7-step[1]][step[0]+1] = (count, step[2])
+            if step[0]>0 and weight[7-step[1]][step[0]-1][0] == 0:
+                nextSteps.append((step[0]-1, step[1], step[2]))
+                weight[7-step[1]][step[0]-1] = (count, step[2])
+    steps = copy.deepcopy(nextSteps)
+    nextSteps = []
+    count += 1
+
+step = end
+count -= 2
+print count
+showWeight(weight)
+path.append(end)
+if solution == "true":
+    while step[0] != start[0] or step[1] != start[1]:
+        if step[1]<7 and weight[7-step[1]-1][step[0]][0] == count-1:
+            path.append((step[0], step[1]+1))
+            step = (step[0], step[1]+1)
+        elif step[1]>0 and weight[7-step[1]+1][step[0]][0] == count-1:
+            path.append((step[0], step[1]-1))
+            step = (step[0], step[1]-1)
+        elif step[0]<7 and weight[7-step[1]][step[0]+1][0] == count-1:
+            path.append((step[0]+1, step[1]))
+            step = (step[0]+1, step[1])
+        elif step[0]>0 and weight[7-step[1]][step[0]-1][0] == count-1:
+            path.append((step[0]-1, step[1]))
+            step = (step[0]-1, step[1])
+        else:
+            print "fail"
+            break
+        count -= 1

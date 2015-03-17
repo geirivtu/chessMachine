@@ -1,0 +1,18 @@
+[Event "Online Chess"]
+[Site "Chess.com"]
+[Date "2009.06.02"]
+[Round "1"]
+[White "vinch"]
+[Black "Hollgam"]
+[Result "0-1"]
+[WhiteElo "1529"]
+[BlackElo "1956"]
+[TimeControl "1 in 1 day"]
+[Termination "Hollgam won by resignation"]
+
+1.e4 e6 2.d4 d5 3.exd5 exd5 4.Nc3 Bb4 5.Bd2 Nc6 6.Nf3 Bg4 7.Bb5 Qe7+ 8.Ne2 Bxf3 9.Bxc6+ bxc6 10.gxf3 Kd7
+ 11.c3 Bd6 12.Be3 Qh4 13.h3 Ne7 14.Qd3 Rab8 15.O-O-O g6 16.Rdg1 Rhe8 17.Rg4 Qf6 18.Bf4 Nf5 19.c4 Rxe2 20.Qxe2 Nxd4
+ 21.Qd2 Bxf4 22.Rxf4 Qxf4 23.Qxf4 Ne2+ 24.Kc2 Nxf4
+ 0-1
+
+

@@ -1,0 +1,13 @@
+[Event "Online Chess"]
+[Site "Chess.com"]
+[Date "2009.05.06"]
+[Round "1"]
+[White "Hollgam"]
+[Black "vinch"]
+[Result "1/2-1/2"]
+[WhiteElo "1976"]
+[BlackElo "1513"]
+[TimeControl "1 in 1 day"]
+[Termination "Game drawn by agreement"]
+
+1.e4 e5 2.d3 d6 3.g3 Be6 4.Bh3 Qd7 5.Qe2 Nc6 6.Bd2 O-O-O 7.Bxe6 fxe6

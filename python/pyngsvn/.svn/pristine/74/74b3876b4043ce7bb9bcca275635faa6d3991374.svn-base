@@ -1,0 +1,11 @@
+*configuration
+
+bc=Brown*board color
+f1=14*font1
+f2=Helvetica 9*font2
+rf=Helvetica 9 bold*rigth font
+lf=Helvetica 9*left font
+bf=0*board flipped
+sz=Large*size
+ps=2*style
+lm=Yes*show last move
